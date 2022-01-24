@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { PhonebookForm, Label, Input, Button } from './style/Common.styled';
 
 class Phonebook extends Component {
   state = {
@@ -29,10 +30,10 @@ class Phonebook extends Component {
 
   render() {
     return (
-      <form onSubmit={this.onFormSubmit}>
-        <label>
+      <PhonebookForm onSubmit={this.onFormSubmit}>
+        <Label>
           Name
-          <input
+          <Input
             type="text"
             name="name"
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -41,10 +42,10 @@ class Phonebook extends Component {
             value={this.state.name}
             onChange={this.onNameInput}
           />
-        </label>
-        <label>
+        </Label>
+        <Label>
           Number
-          <input
+          <Input
             type="tel"
             name="number"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -53,10 +54,10 @@ class Phonebook extends Component {
             value={this.state.number}
             onChange={this.onNumberInput}
           />
-        </label>
+        </Label>
 
-        <button type="submit">Add contact</button>
-      </form>
+        <Button type="submit">Add contact</Button>
+      </PhonebookForm>
     );
   }
 }

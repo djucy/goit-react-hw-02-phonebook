@@ -5,6 +5,11 @@ import Phonebook from './components/Phonebook';
 import Filter from './components/Filter';
 import ContactList from './components/ContactList';
 import initialTodos from './todos.json';
+import {
+  Container,
+  Title,
+  SecondaryTitle,
+} from './components/style/Common.styled';
 
 class App extends Component {
   state = {
@@ -22,20 +27,8 @@ class App extends Component {
     const userName = this.state.contacts.find(
       user => user.name === contact.name,
     );
-    //  if (
-    //     this.state.contacts.some(
-    //       item => item.name.toLowerCase() === normalizeName,
-    //     )
-    //   ) {
-    //     toast(`${contact.name} is already in your contacts`);
-    //     return;
-    //   }
-    //   this.setState(({ contacts }) => ({
-    //     contacts: [contact, ...contacts],
-    //     filter: '',
-    //   }));
-    // };
-    if (this.state.contacts.find(user => user.name === contact.name)) {
+
+    if (userName) {
       alert(`${contact.name} is already in contacts`);
       return;
     }
@@ -61,21 +54,21 @@ class App extends Component {
       contacts: prevState.contacts.filter(contact => contact.id !== contactId),
     }));
   };
-  // nameInputId = this.name.nanoid();
+
   render() {
     const { contacts, filter } = this.state;
     const visibleContacts = this.findContact();
     return (
-      <div>
-        <h1>Phonebook</h1>
+      <Container>
+        <Title>Phonebook</Title>
         <Phonebook onSubmit={this.addContact}></Phonebook>
-        <h2>Contacts</h2>
+        <SecondaryTitle>Contacts</SecondaryTitle>
         <Filter value={filter} onChange={this.changeFilter}></Filter>
         <ContactList
           contacts={visibleContacts}
           onDeleteContact={this.deleteContact}
         ></ContactList>
-      </div>
+      </Container>
     );
   }
 }
