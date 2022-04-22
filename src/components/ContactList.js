@@ -7,6 +7,8 @@ import {
   ButtonDelete,
 } from './style/Common.styled';
 
+import PropTypes, { arrayOf } from 'prop-types';
+
 const ContactList = ({ contacts, onDeleteContact }) => (
   <ContactsList>
     {contacts.map(({ name, number, id }) => (
@@ -21,3 +23,12 @@ const ContactList = ({ contacts, onDeleteContact }) => (
   </ContactsList>
 );
 export default ContactList;
+ContactList.propTypes = {
+  contacts: arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
+    }),
+  ),
+};

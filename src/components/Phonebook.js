@@ -15,12 +15,6 @@ class Phonebook extends Component {
     this.setState({ [name]: value });
   };
 
-  // onNameInput = e => {
-  //     this.setState({ name: e.currentTarget.value });
-  // }
-  // onNumberInput = e => {
-  //     this.setState({ number: e.currentTarget.value });
-  // }
   onFormSubmit = e => {
     e.preventDefault();
     this.props.onSubmit(this.state.name, this.state.number);

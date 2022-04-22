@@ -68,6 +68,7 @@ export const Button = styled.button`
   background-color: #337bae;
   border-radius: 15px;
   border: none;
+  cursor: pointer;
   &:hover {
     background-color: #1a405f;
   }
@@ -97,6 +98,7 @@ export const ButtonDelete = styled.button`
   height: 25px;
   padding: 0 15px;
   margin-left: 15px;
+  cursor: pointer;
 
   font-size: 15px;
   font-family: 'Dancing Script', cursive;

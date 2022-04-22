@@ -1,5 +1,6 @@
 import React from 'react';
 import { FilterContainer, Label, Input } from './style/Common.styled';
+import PropTypes from 'prop-types';
 
 const Filter = ({ value, onChange }) => (
   <FilterContainer>
@@ -15,5 +16,7 @@ const Filter = ({ value, onChange }) => (
     </Label>
   </FilterContainer>
 );
-
+Filter.propTypes = {
+  value: PropTypes.string.isRequired,
+};
 export default Filter;
